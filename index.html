@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="ms" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homestay Pencen | Laman Tempahan & Semakan Tarikh Rasmi</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Theme Customization -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        amberGold: '#d97706',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.90)), url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=1600&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(12px);
+        }
+        .watermark-overlay::after {
+            content: "Homestay Pencen Official • 012-2722996";
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background: rgba(15, 23, 42, 0.75);
+            color: #ffffff;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 4px;
+            pointer-events: none;
+            backdrop-filter: blur(4px);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Anti-Scam Top Notice Bar -->
+    <div class="bg-amber-600 text-white text-xs py-2 px-4 text-center font-medium flex items-center justify-center gap-2 shadow-inner">
+        <i class="fa-solid fa-shield-halved text-sm"></i>
+        <span><strong>AMARAN ANTI-SCAM:</strong> Ini adalah Laman Rasmi Homestay Pencen. Tempahan HANYA diuruskan melalui WhatsApp: <strong>012-2722996</strong>. Elakkan sebarang bayaran ke akaun pihak ketiga.</span>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Brand Logo & Title -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-brand-600 text-white flex items-center justify-center font-bold text-xl shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-house-chimney"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-bold tracking-tight text-slate-900 block leading-tight">Homestay Pencen</span>
+                        <span class="text-xs font-semibold text-brand-600 tracking-wider uppercase">Tingkat 1 • Kajang / Bangi</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Links -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-600">
+                    <a href="#about" class="hover:text-brand-600 transition-colors">Utama</a>
+                    <a href="#semak-tarikh" class="hover:text-brand-600 transition-colors text-emerald-600 font-bold"><i class="fa-solid fa-calendar-check mr-1"></i> Semak Tarikh</a>
+                    <a href="#kemudahan" class="hover:text-brand-600 transition-colors">Kemudahan</a>
+                    <a href="#galeri" class="hover:text-brand-600 transition-colors">Galeri</a>
+                    <a href="#lokasi" class="hover:text-brand-600 transition-colors">Lokasi & Tempat</a>
+                    <a href="#pengesahan-rasmi" class="hover:text-brand-600 transition-colors text-amber-600 font-semibold"><i class="fa-solid fa-badge-check mr-1"></i>Pengesahan Rasmi</a>
+                </nav>
+
+                <!-- WhatsApp Official Header CTA -->
+                <div class="hidden sm:flex items-center space-x-3">
+                    <a href="https://www.wasap.my/60122722996" target="_blank" rel="noopener noreferrer" class="official-wa-link inline-flex items-center space-x-2 bg-brand-600 hover:bg-brand-700 text-white px-5 py-2.5 rounded-full font-semibold text-sm transition-all shadow-md hover:shadow-lg shadow-brand-600/30">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>WhatsApp (012-2722996)</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl" id="menuIcon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" class="block py-2 text-slate-700 font-medium hover:text-brand-600">Utama</a>
+            <a href="#semak-tarikh" class="block py-2 text-emerald-600 font-bold hover:text-brand-600"><i class="fa-solid fa-calendar-check mr-1"></i> Semak Tarikh Kekosongan</a>
+            <a href="#kemudahan" class="block py-2 text-slate-700 font-medium hover:text-brand-600">Kemudahan</a>
+            <a href="#galeri" class="block py-2 text-slate-700 font-medium hover:text-brand-600">Galeri Foto</a>
+            <a href="#lokasi" class="block py-2 text-slate-700 font-medium hover:text-brand-600">Lokasi & Tempat Menarik</a>
+            <a href="#pengesahan-rasmi" class="block py-2 text-amber-600 font-semibold">Pengesahan Rasmi & Anti-Scam</a>
+            <a href="https://www.wasap.my/60122722996" target="_blank" class="official-wa-link block w-full text-center bg-brand-600 text-white font-semibold py-3 rounded-xl mt-4">
+                <i class="fa-brands fa-whatsapp mr-2"></i> WhatsApp 012-2722996
+            </a>
+        </div>
+    </header>
+
+    <!-- Unauthorized Clone Security Alert Banner (Triggered dynamically via Domain Lock JS if cloned) -->
+    <div id="cloneSecurityAlert" class="hidden bg-red-600 text-white p-4 text-center text-sm font-bold border-b border-red-800 animate-pulse">
+        ⚠️ AMARAN KESELAMATAN: Laman web ini disyaki telah DIKLON atau DITIRU secara tidak sah oleh pihak ketiga! Sila jangan buat sebarang tempahan atau pembayaran di sini. Layari laman rasmi kami di <span id="officialDomainText" class="underline">homestaypencen.github.io</span> atau WhatsApp nombor rasmi usahawan: <strong>012-2722996</strong>.
+    </div>
+
+    <!-- Hero Banner Section -->
+    <section id="about" class="hero-bg text-white relative py-16 sm:py-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Left Column -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 bg-brand-500/20 border border-brand-400/30 text-brand-300 px-4 py-1.5 rounded-full text-xs sm:text-sm font-medium backdrop-blur-sm">
+                        <i class="fa-solid fa-circle-check text-emerald-400"></i>
+                        <span>Laman Web Rasmi & Semakan Tarikh Terus</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                        Penginapan Selesa & Tenang di <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-emerald-300">Homestay Pencen</span>
+                    </h1>
+
+                    <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        Nikmati suasana seperti di rumah sendiri. Lokasi sangat strategik di Kampung Datok Abu Bakar Baginda (Berdekatan Bangi, Putrajaya, Kajang & Serdang).
+                    </p>
+
+                    <!-- Strategic Badges -->
+                    <div class="pt-1 flex flex-wrap gap-2 justify-center lg:justify-start">
+                        <span class="bg-slate-800/80 text-slate-200 border border-slate-700 text-xs px-3 py-1.5 rounded-lg flex items-center gap-1.5">
+                            <i class="fa-solid fa-location-dot text-brand-400"></i> Bangi
+                        </span>
+                        <span class="bg-slate-800/80 text-slate-200 border border-slate-700 text-xs px-3 py-1.5 rounded-lg flex items-center gap-1.5">
+                            <i class="fa-solid fa-location-dot text-brand-400"></i> Putrajaya
+                        </span>
+                        <span class="bg-slate-800/80 text-slate-200 border border-slate-700 text-xs px-3 py-1.5 rounded-lg flex items-center gap-1.5">
+                            <i class="fa-solid fa-location-dot text-brand-400"></i> Kajang
+                        </span>
+                        <span class="bg-slate-800/80 text-slate-200 border border-slate-700 text-xs px-3 py-1.5 rounded-lg flex items-center gap-1.5">
+                            <i class="fa-solid fa-location-dot text-brand-400"></i> Serdang
+                        </span>
+                    </div>
+
+                    <!-- Call to Action Buttons -->
+                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#semak-tarikh" class="w-full sm:w-auto bg-brand-600 hover:bg-brand-500 text-white font-bold px-8 py-4 rounded-2xl transition-all shadow-xl shadow-brand-600/30 flex items-center justify-center gap-3 text-center">
+                            <i class="fa-solid fa-calendar-days text-xl"></i>
+                            <span>Semak Kekosongan Tarikh</span>
+                        </a>
+                        <a href="#pengesahan-rasmi" class="w-full sm:w-auto bg-amber-600/90 hover:bg-amber-600 text-white border border-amber-500 font-semibold px-6 py-4 rounded-2xl transition-all text-center flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-shield-check"></i> Info Anti-Scam Rasmi
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Right Card -->
+                <div class="lg:col-span-5">
+                    <div class="glass-card text-slate-800 p-6 sm:p-8 rounded-3xl shadow-2xl border border-white/20 relative">
+                        <div class="absolute -top-3 -right-3 bg-brand-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow flex items-center gap-1">
+                            <i class="fa-solid fa-badge-check"></i> Pengesahan Sah
+                        </div>
+
+                        <h3 class="text-xl font-bold text-slate-900 mb-1">Homestay Pencen (Tingkat 1)</h3>
+                        <p class="text-xs text-slate-500 mb-6">Lot 6105, Jalan Cempaka Biru, Kg Datok Abu Bakar Baginda, Kajang</p>
+
+                        <div class="space-y-3.5 text-sm">
+                            <div class="flex items-center justify-between pb-2.5 border-b border-slate-100">
+                                <span class="text-slate-600 flex items-center gap-2">
+                                    <i class="fa-solid fa-bed text-brand-600 w-5"></i> Bilik Tidur
+                                </span>
+                                <span class="font-bold text-slate-800">2 Bilik (1 Queen + 2 Single)</span>
+                            </div>
+                            <div class="flex items-center justify-between pb-2.5 border-b border-slate-100">
+                                <span class="text-slate-600 flex items-center gap-2">
+                                    <i class="fa-solid fa-snowflake text-brand-600 w-5"></i> Pengudaraan
+                                </span>
+                                <span class="font-semibold text-slate-800">Aircond & Kipas</span>
+                            </div>
+                            <div class="flex items-center justify-between pb-2.5 border-b border-slate-100">
+                                <span class="text-slate-600 flex items-center gap-2">
+                                    <i class="fa-solid fa-key text-brand-600 w-5"></i> Masuk Tetamu
+                                </span>
+                                <span class="font-semibold text-slate-800">Self Check-In Mudah</span>
+                            </div>
+                            <div class="flex items-center justify-between pb-2.5 border-b border-slate-100">
+                                <span class="text-slate-600 flex items-center gap-2">
+                                    <i class="fa-solid fa-phone text-brand-600 w-5"></i> Tel Rasmi
+                                </span>
+                                <span class="font-bold text-slate-900 bg-amber-100 text-amber-900 border border-amber-300 px-2 py-0.5 rounded text-xs">012-2722996</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-slate-600 flex items-center gap-2">
+                                    <i class="fa-solid fa-car text-brand-600 w-5"></i> Parking
+                                </span>
+                                <span class="font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-md text-xs">Percuma & Luas</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 pt-5 border-t border-slate-200 flex items-center justify-between">
+                            <div>
+                                <p class="text-xs text-slate-500">Kadar Penginapan</p>
+                                <p class="text-2xl font-extrabold text-brand-700">RM 150 <span class="text-xs text-slate-500 font-normal">/ malam</span></p>
+                            </div>
+                            <a href="https://www.wasap.my/60122722996?text=Salam,%20saya%20nak%20tanya%20mengenai%20tempahan%20Homestay%20Pencen" target="_blank" class="official-wa-link bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs px-4 py-3 rounded-xl transition-colors flex items-center gap-1.5 shadow">
+                                <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp Usahawan
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Date Checker & Calendar View -->
+    <section id="semak-tarikh" class="py-16 bg-slate-900 text-white relative border-y-4 border-brand-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="bg-brand-500/20 text-brand-300 border border-brand-400/30 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                    <i class="fa-solid fa-calendar-check mr-1"></i> Semakan Terus Realtime
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3">Semak Kekosongan Tarikh Anda</h2>
+                <p class="text-slate-300 text-sm mt-2">
+                    Gunakan kalendar interaktif di bawah untuk menyemak tarikh yang tersedia (Hijau) atau telah ditempah (Merah) sebelum membuat pesanan.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Quick Date Checker Input Tool -->
+                <div class="lg:col-span-5 bg-slate-800 p-6 sm:p-8 rounded-3xl border border-slate-700 shadow-xl">
+                    <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-magnifying-glass text-brand-400"></i> Semak Status Tarikh Pilihan
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-300 mb-1">Tarikh Cadangan Check-In</label>
+                            <input type="date" id="checkAvailabilityDate" onchange="checkSelectedDateStatus()" class="w-full bg-slate-900 border border-slate-600 text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-brand-400">
+                        </div>
+
+                        <!-- Availability Output Box -->
+                        <div id="availabilityResultBox" class="p-4 rounded-xl bg-slate-900 border border-slate-700 text-sm flex items-start gap-3">
+                            <i id="statusIcon" class="fa-solid fa-circle-info text-brand-400 text-xl mt-0.5"></i>
+                            <div>
+                                <h4 id="statusTitle" class="font-bold text-white">Sila Pilih Tarikh</h4>
+                                <p id="statusMessage" class="text-xs text-slate-400 mt-1">Klik pada kalendar di sebelah atau pilih tarikh di atas untuk semakan status kekosongan.</p>
+                            </div>
+                        </div>
+
+                        <a id="directBookingBtn" href="#tempah" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-bold py-3.5 rounded-xl text-center text-sm block transition-colors">
+                            Kira Kos & Teruskan Tempahan
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Visual Interactive Calendar Grid -->
+                <div class="lg:col-span-7 bg-white text-slate-800 p-6 sm:p-8 rounded-3xl shadow-xl">
+                    <div class="flex items-center justify-between mb-6">
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-lg">Kalendar Kekosongan Unit</h3>
+                            <p class="text-xs text-slate-500">Status terkini tempahan unit Homestay Pencen</p>
+                        </div>
+                        <div class="flex items-center gap-3 text-xs font-semibold">
+                            <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span> Kosong</span>
+                            <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-red-500 inline-block"></span> Ditempah</span>
+                        </div>
+                    </div>
+
+                    <!-- Month Controls -->
+                    <div class="flex items-center justify-between bg-slate-100 p-3 rounded-xl mb-4">
+                        <button onclick="changeMonth(-1)" class="p-2 hover:bg-slate-200 rounded-lg text-slate-700 transition-colors"><i class="fa-solid fa-chevron-left"></i></button>
+                        <span id="calendarMonthTitle" class="font-bold text-slate-800 text-sm sm:text-base">Bulan Tahun</span>
+                        <button onclick="changeMonth(1)" class="p-2 hover:bg-slate-200 rounded-lg text-slate-700 transition-colors"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+
+                    <!-- Days Header -->
+                    <div class="grid grid-cols-7 text-center font-bold text-xs text-slate-500 mb-2">
+                        <div>Ahd</div><div>Isn</div><div>Sel</div><div>Rab</div><div>Kha</div><div>Jum</div><div>Sab</div>
+                    </div>
+
+                    <!-- Dynamic Calendar Grid -->
+                    <div id="calendarDaysGrid" class="grid grid-cols-7 gap-1.5 text-center text-xs font-semibold">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Official Verification & Anti-Scam Info Section -->
+    <section id="pengesahan-rasmi" class="py-16 bg-amber-50/70 border-b border-amber-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl p-6 sm:p-10 border border-amber-200 shadow-md">
+                <div class="flex flex-col md:flex-row items-center gap-6">
+                    <div class="w-20 h-20 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-4xl flex-shrink-0">
+                        <i class="fa-solid fa-shield-check"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-amber-700 bg-amber-100 px-3 py-1 rounded-full">Panduan Bebas Scam</span>
+                        <h3 class="text-2xl font-extrabold text-slate-900 mt-2">Pengesahan Identiti Rasmi Homestay</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                            Bagi melindungi anda daripada penipuan laman web klon atau akaun palsu di media sosial, sila pastikan pengesahan berikut sebelum memindahkan bayaran deposit:
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8 pt-6 border-t border-slate-100">
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                        <div class="text-brand-600 font-bold text-base mb-1"><i class="fa-solid fa-phone mr-1"></i> Nombor Rasmi Tunggal</div>
+                        <p class="text-xs text-slate-600">Satu-satunya nombor pengurusan rasmi kami ialah <strong>012-2722996</strong>. Jangan terima tawaran daripada nombor lain.</p>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                        <div class="text-brand-600 font-bold text-base mb-1"><i class="fa-brands fa-whatsapp mr-1"></i> Pautan WhatsApp Sah</div>
+                        <p class="text-xs text-slate-600">Pautan rasmi di laman ini membawa terus ke <code>wasap.my/60122722996</code>.</p>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                        <div class="text-brand-600 font-bold text-base mb-1"><i class="fa-solid fa-building-columns mr-1"></i> Pengesahan Akaun Bank</div>
+                        <p class="text-xs text-slate-600">Maklumat akaun deposit hanya diberikan menerusi pesanan WhatsApp rasmi dari nombor tertera.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amenities Section -->
+    <section id="kemudahan" class="py-16 sm:py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-2">Fasiliti Penginapan</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-slate-900">Kemudahan Lengkap Disediakan</p>
+                <p class="text-slate-600 text-sm sm:text-base mt-3">Segala fasiliti asas dan keselesaan rumah disediakan khusus untuk kelancaran penginapan anda.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Card 1: Bilik Tidur -->
+                <div class="bg-white p-7 rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl font-bold mb-5">
+                        <i class="fa-solid fa-bed"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">2 Bilik Tidur Selesa</h3>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> 1 Katil Queen (Bilik Utama)</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> 2 Katil Single (Bilik Kedua)</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> Katil & tilam berkualiti dan empuk</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> Set bantal & cadar yang bersih</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2: Pengudaraan -->
+                <div class="bg-white p-7 rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center text-xl font-bold mb-5">
+                        <i class="fa-solid fa-snowflake"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Aircond & Kipas Angin</h3>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> Aircond di Ruang Tamu Utama</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> Aircond di Bilik Utama</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> Kipas angin di setiap sudut bilik</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3: Dapur -->
+                <div class="bg-white p-7 rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl font-bold mb-5">
+                        <i class="fa-solid fa-kitchen-set"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Dapur Memasak Lengkap</h3>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> Peti sejuk 2 pintu</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> Dapur elektrik & periuk memasak</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> Seterika (Iron) & papan seterika</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> Pinggan, mangkuk, cawan & sudu</li>
+                    </ul>
+                </div>
+
+                <!-- Card 4: Bilik Air -->
+                <div class="bg-white p-7 rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl font-bold mb-5">
+                        <i class="fa-solid fa-bath"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Bilik Air & Mandi</h3>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> 1 Bilik mandi bersih</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> 4 Pcs tuala mandi bersih disediakan</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> Sabun mandi asas</li>
+                    </ul>
+                </div>
+
+                <!-- Card 5: Hiburan Ruang Tamu -->
+                <div class="bg-white p-7 rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl font-bold mb-5">
+                        <i class="fa-solid fa-tv"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Ruang Tamu & TV</h3>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> Televisyen (TV)</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> Sofa selesa untuk sekeluarga</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> Suasana pencahayaan yang tenang</li>
+                    </ul>
+                </div>
+
+                <!-- Card 6: Kelebihan & Check-In -->
+                <div class="bg-white p-7 rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl font-bold mb-5">
+                        <i class="fa-solid fa-square-parking"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">Parking & Akses Mudah</h3>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> Parking kenderaan percuma & mudah</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> Unit Tingkat 1 (Tangga mudah)</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600 text-xs"></i> Proses Self Check-In pantas</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section id="galeri" class="py-16 sm:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-2">Gambaran Suasana</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-slate-900">Galeri Foto Homestay Pencen</p>
+                <p class="text-slate-600 text-sm mt-2">Gambar sebenar unit Homestay Pencen (Tingkat 1) untuk rujukan bakal tetamu.</p>
+            </div>
+
+            <!-- Gallery Grid with Watermark Protection -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Photo 1 -->
+                <div class="group relative overflow-hidden rounded-3xl bg-slate-100 aspect-[4/3] cursor-pointer shadow-sm hover:shadow-xl transition-all watermark-overlay" onclick="openGalleryModal('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=1200&auto=format&fit=crop', 'Ruang Tamu Selesa dengan TV & Aircond')">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=600&auto=format&fit=crop" alt="Ruang Tamu" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent opacity-70 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-4 left-4 right-4 text-white">
+                        <span class="text-[10px] bg-brand-600/90 text-white font-semibold px-2 py-0.5 rounded mb-1 inline-block">Ruang Utama</span>
+                        <h4 class="font-bold text-sm leading-tight">Ruang Tamu Selesa & TV</h4>
+                    </div>
+                </div>
+
+                <!-- Photo 2 -->
+                <div class="group relative overflow-hidden rounded-3xl bg-slate-100 aspect-[4/3] cursor-pointer shadow-sm hover:shadow-xl transition-all watermark-overlay" onclick="openGalleryModal('https://images.unsplash.com/photo-1616594039964-ae9021a400a0?q=80&w=1200&auto=format&fit=crop', 'Bilik Utama - Katil Queen & Aircond')">
+                    <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?q=80&w=600&auto=format&fit=crop" alt="Bilik Utama Katil Queen" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent opacity-70 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-4 left-4 right-4 text-white">
+                        <span class="text-[10px] bg-brand-600/90 text-white font-semibold px-2 py-0.5 rounded mb-1 inline-block">Bilik 1</span>
+                        <h4 class="font-bold text-sm leading-tight">Bilik Utama (1 Katil Queen + Aircond)</h4>
+                    </div>
+                </div>
+
+                <!-- Photo 3 -->
+                <div class="group relative overflow-hidden rounded-3xl bg-slate-100 aspect-[4/3] cursor-pointer shadow-sm hover:shadow-xl transition-all watermark-overlay" onclick="openGalleryModal('https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?q=80&w=1200&auto=format&fit=crop', 'Bilik Kedua - 2 Katil Single')">
+                    <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?q=80&w=600&auto=format&fit=crop" alt="Bilik Kedua Katil Single" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent opacity-70 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-4 left-4 right-4 text-white">
+                        <span class="text-[10px] bg-brand-600/90 text-white font-semibold px-2 py-0.5 rounded mb-1 inline-block">Bilik 2</span>
+                        <h4 class="font-bold text-sm leading-tight">Bilik Kedua (2 Katil Single & Kipas)</h4>
+                    </div>
+                </div>
+
+                <!-- Photo 4 -->
+                <div class="group relative overflow-hidden rounded-3xl bg-slate-100 aspect-[4/3] cursor-pointer shadow-sm hover:shadow-xl transition-all watermark-overlay" onclick="openGalleryModal('https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=1200&auto=format&fit=crop', 'Dapur Lengkap Memasak & Peti Sejuk')">
+                    <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=600&auto=format&fit=crop" alt="Ruang Dapur" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent opacity-70 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-4 left-4 right-4 text-white">
+                        <span class="text-[10px] bg-brand-600/90 text-white font-semibold px-2 py-0.5 rounded mb-1 inline-block">Dapur</span>
+                        <h4 class="font-bold text-sm leading-tight">Dapur Memasak & Peti Sejuk</h4>
+                    </div>
+                </div>
+
+                <!-- Photo 5 -->
+                <div class="group relative overflow-hidden rounded-3xl bg-slate-100 aspect-[4/3] cursor-pointer shadow-sm hover:shadow-xl transition-all watermark-overlay" onclick="openGalleryModal('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1200&auto=format&fit=crop', 'Bilik Air Bersih & Tuala Mandi')">
+                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=600&auto=format&fit=crop" alt="Bilik Air" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent opacity-70 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-4 left-4 right-4 text-white">
+                        <span class="text-[10px] bg-brand-600/90 text-white font-semibold px-2 py-0.5 rounded mb-1 inline-block">Bilik Mandi</span>
+                        <h4 class="font-bold text-sm leading-tight">Bilik Air Bersih (4 Tuala Mandi)</h4>
+                    </div>
+                </div>
+
+                <!-- Photo 6 -->
+                <div class="group relative overflow-hidden rounded-3xl bg-slate-100 aspect-[4/3] cursor-pointer shadow-sm hover:shadow-xl transition-all watermark-overlay" onclick="openGalleryModal('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=1200&auto=format&fit=crop', 'Persekitaran Homestay & Parking Luas')">
+                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=600&auto=format&fit=crop" alt="Pandangan Luar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent opacity-70 group-hover:opacity-90 transition-opacity"></div>
+                    <div class="absolute bottom-4 left-4 right-4 text-white">
+                        <span class="text-[10px] bg-brand-600/90 text-white font-semibold px-2 py-0.5 rounded mb-1 inline-block">Luaran</span>
+                        <h4 class="font-bold text-sm leading-tight">Kawasan Kampung Tenang & Parking Lapang</h4>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategic Location & Categorized Nearby Places -->
+    <section id="lokasi" class="py-16 sm:py-24 bg-slate-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-400 bg-brand-500/10 border border-brand-500/20 px-3 py-1 rounded-full">Akses Mudah</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3">Lokasi Strategik Berhampiran</h2>
+                <p class="text-slate-400 text-sm mt-2">
+                    Alamat: <span class="text-slate-200">Tingkat 1, Lot 6105, Jalan Cempaka Biru, Kampung Datok Abu Bakar Baginda, 43000 Kajang, Selangor</span>
+                </p>
+            </div>
+
+            <!-- Address Banner Card -->
+            <div class="bg-slate-800/90 border border-slate-700 rounded-3xl p-6 mb-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-500/20 text-brand-400 flex items-center justify-center text-2xl flex-shrink-0">
+                        <i class="fa-solid fa-map-pin"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg text-white">Homestay Pencen (Tingkat 1)</h4>
+                        <p class="text-xs text-slate-300">Kg Datok Abu Bakar Baginda • Berdekatan UNITEN, Putrajaya & Bangi</p>
+                    </div>
+                </div>
+                <a href="https://maps.google.com/?q=Kampung+Datok+Abu+Bakar+Baginda+Kajang" target="_blank" rel="noopener" class="w-full md:w-auto bg-brand-600 hover:bg-brand-500 text-white font-semibold px-6 py-3 rounded-xl transition-colors text-center text-sm flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-location-arrow"></i> Buka Google Maps
+                </a>
+            </div>
+
+            <!-- Filter Buttons for Categories -->
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-8" id="categoryFilterBtns">
+                <button onclick="filterPlaces('semua')" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-brand-600 text-white" data-cat="semua">Semua Tempat</button>
+                <button onclick="filterPlaces('makan')" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700" data-cat="makan"><i class="fa-solid fa-utensils mr-1"></i> Tempat Makan</button>
+                <button onclick="filterPlaces('pasaraya')" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700" data-cat="pasaraya"><i class="fa-solid fa-cart-shopping mr-1"></i> Pasaraya & Mall</button>
+                <button onclick="filterPlaces('masjid')" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700" data-cat="masjid"><i class="fa-solid fa-mosque mr-1"></i> Masjid & Surau</button>
+                <button onclick="filterPlaces('institusi')" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700" data-cat="institusi"><i class="fa-solid fa-graduation-cap mr-1"></i> Institusi / IPT</button>
+                <button onclick="filterPlaces('hospital')" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700" data-cat="hospital"><i class="fa-solid fa-hospital mr-1"></i> Hospital / Klinik</button>
+            </div>
+
+            <!-- Dynamic Place Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5" id="placesGrid">
+                <!-- Javascript will render places list dynamically -->
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Booking Form Section with Live Calculator -->
+    <section id="tempah" class="py-16 sm:py-24 bg-slate-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
+                
+                <div class="bg-gradient-to-r from-brand-700 to-brand-800 text-white p-6 sm:p-10 text-center">
+                    <h2 class="text-2xl sm:text-4xl font-extrabold mb-2">Borang Tempahan & Pengiraan Kos</h2>
+                    <p class="text-brand-100 text-xs sm:text-sm max-w-xl mx-auto">Isi maklumat di bawah untuk menghantar borang pesanan terus ke WhatsApp rasmi usahawan (012-2722996).</p>
+                </div>
+
+                <div class="p-6 sm:p-10">
+                    <form id="bookingForm" onsubmit="event.preventDefault(); submitToWhatsApp();" class="space-y-6">
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            
+                            <!-- Nama Penuh -->
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-700 mb-2">Nama Penuh Tetamu</label>
+                                <div class="relative">
+                                    <i class="fa-solid fa-user absolute left-3.5 top-3.5 text-slate-400"></i>
+                                    <input type="text" id="guestName" placeholder="Contoh: Encik Ahmad" class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-slate-900 text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none" required>
+                                </div>
+                            </div>
+
+                            <!-- Bilangan Tetamu -->
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-700 mb-2">Jumlah Tetamu</label>
+                                <div class="relative">
+                                    <i class="fa-solid fa-users absolute left-3.5 top-3.5 text-slate-400"></i>
+                                    <select id="guestCount" class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-slate-900 text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                                        <option value="1 - 2 Orang">1 - 2 Orang</option>
+                                        <option value="3 - 4 Orang" selected>3 - 4 Orang</option>
+                                        <option value="5 - 6 Orang">5 - 6 Orang (Keluarga)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Check-In Date -->
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-700 mb-2">Tarikh Check-In</label>
+                                <input type="date" id="checkInDate" onchange="calculatePrice()" class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-slate-900 text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none" required>
+                            </div>
+
+                            <!-- Check-Out Date -->
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-700 mb-2">Tarikh Check-Out</label>
+                                <input type="date" id="checkOutDate" onchange="calculatePrice()" class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-slate-900 text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none" required>
+                            </div>
+
+                        </div>
+
+                        <!-- Nota / Permintaan Khas -->
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-700 mb-2">Nota Tambahan / Permintaan Khas (Opsional)</label>
+                            <textarea id="guestNotes" rows="2" placeholder="Contoh: Anggaran waktu sampai pukul 3 petang" class="w-full p-4 bg-slate-50 border border-slate-300 rounded-xl text-slate-900 text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none"></textarea>
+                        </div>
+
+                        <!-- Dynamic Price Summary Box -->
+                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-3">
+                            <div class="flex justify-between items-center text-sm text-slate-600">
+                                <span>Jumlah Malam Penginapan:</span>
+                                <span id="summaryNights" class="font-bold text-slate-900">0 Malam</span>
+                            </div>
+                            <div class="flex justify-between items-center text-sm text-slate-600">
+                                <span>Kadar Semalam:</span>
+                                <span id="summaryRate" class="font-bold text-slate-900">RM 150</span>
+                            </div>
+                            <div class="pt-3 border-t border-slate-200 flex justify-between items-center text-base sm:text-lg font-extrabold text-slate-900">
+                                <span>Anggaran Kos Keseluruhan:</span>
+                                <span id="summaryTotal" class="text-2xl text-brand-700">RM 0</span>
+                            </div>
+                        </div>
+
+                        <!-- Submit WhatsApp Button -->
+                        <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold text-base py-4 rounded-2xl transition-all shadow-lg shadow-brand-600/30 flex items-center justify-center gap-3">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i>
+                            <span>Hantar Maklumat Tempahan via WhatsApp (012-2722996)</span>
+                        </button>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                
+                <div>
+                    <div class="flex items-center space-x-2 text-white font-bold text-xl mb-3">
+                        <i class="fa-solid fa-house-chimney text-brand-500"></i>
+                        <span>Homestay Pencen (Tingkat 1)</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                        Penginapan selesa, bersih & strategik di Kajang/Bangi. Semak kekosongan secara terus di laman web rasmi kami.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold text-sm mb-3">Alamat Rasmi Homestay</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Tingkat 1, Lot 6105, Jalan Cempaka Biru,<br>
+                        Kampung Datok Abu Bakar Baginda,<br>
+                        43000 Kajang, Selangor.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold text-sm mb-3">Hubungi Terus</h4>
+                    <p class="text-xs text-slate-400 mb-2">WhatsApp: <a href="https://www.wasap.my/60122722996" class="official-wa-link text-brand-400 hover:underline">012-2722996</a></p>
+                    <a href="https://www.wasap.my/60122722996" target="_blank" class="official-wa-link inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all">
+                        <i class="fa-brands fa-whatsapp"></i> Hubungi Pengurusan Rasmi
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500">
+                <p>&copy; <span id="currentYear"></span> Homestay Pencen. Hak Cipta Terpelihara.</p>
+                <p class="mt-2 sm:mt-0 text-amber-500"><i class="fa-solid fa-shield-halved mr-1"></i> Laman Web Terpelihara Anti-Scam</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Mobile WhatsApp Button -->
+    <a href="https://www.wasap.my/60122722996" target="_blank" rel="noopener" class="official-wa-link fixed bottom-6 right-6 z-50 bg-emerald-500 hover:bg-emerald-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-all focus:outline-none">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- Image Gallery Lightbox Modal -->
+    <div id="galleryModal" class="fixed inset-0 z-50 hidden bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="relative max-w-4xl w-full bg-slate-900 rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
+            <button onclick="closeGalleryModal()" class="absolute top-4 right-4 z-10 bg-slate-800/80 hover:bg-slate-700 text-white w-10 h-10 rounded-full flex items-center justify-center focus:outline-none">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <div class="p-2">
+                <img id="modalImage" src="" alt="Homestay Photo" class="w-full max-h-[75vh] object-contain rounded-lg">
+            </div>
+            <div class="p-4 bg-slate-900 text-center">
+                <p id="modalCaption" class="text-sm font-semibold text-slate-200"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        const OFFICIAL_PHONE = "0122722996";
+        const OFFICIAL_PHONE_INT = "60122722996";
+        
+        // Allowed Official Domains List
+        // Jika website di-host di GitHub Pages (homestaypencen.github.io), masukkan domain anda di sini
+        const ALLOWED_DOMAINS = [
+            "homestaypencen.github.io",
+            "localhost",
+            "127.0.0.1"
+        ];
+
+        // Usahawan boleh mengemaskini senarai tarikh yang telah ditempah di sini (Format: YYYY-MM-DD)
+        const bookedDates = [
+            "2026-10-10", "2026-10-11",
+            "2026-10-24", "2026-10-25",
+            "2026-11-01", "2026-11-02", "2026-11-14"
+        ];
+
+        let currentCalendarDate = new Date();
+
+        function runSecurityDomainCheck() {
+            const hostname = window.location.hostname;
+            const isAuthorized = ALLOWED_DOMAINS.some(domain => hostname === domain || hostname.endsWith("." + domain) || hostname === "");
+
+            // Enforce WhatsApp links across page to point to official number
+            const waLinks = document.querySelectorAll('.official-wa-link');
+            waLinks.forEach(link => {
+                const currentHref = link.getAttribute('href');
+                if (!currentHref || !currentHref.includes(OFFICIAL_PHONE_INT)) {
+                    link.setAttribute('href', `https://www.wasap.my/${OFFICIAL_PHONE_INT}`);
+                }
+            });
+
+            // If detected on cloned domain, display anti-scam alert
+            if (!isAuthorized && hostname !== "") {
+                const alertBar = document.getElementById('cloneSecurityAlert');
+                if (alertBar) alertBar.classList.remove('hidden');
+            }
+        }
+
+        function checkSelectedDateStatus() {
+            const inputVal = document.getElementById('checkAvailabilityDate').value;
+            const statusBox = document.getElementById('availabilityResultBox');
+            const icon = document.getElementById('statusIcon');
+            const title = document.getElementById('statusTitle');
+            const message = document.getElementById('statusMessage');
+
+            if(!inputVal) return;
+
+            const isBooked = bookedDates.includes(inputVal);
+
+            if(isBooked) {
+                statusBox.className = "p-4 rounded-xl bg-red-950/80 border border-red-700 text-sm flex items-start gap-3";
+                icon.className = "fa-solid fa-circle-xmark text-red-400 text-xl mt-0.5";
+                title.innerText = "Tarikh Ini Telah Ditempah (Penuh)";
+                title.className = "font-bold text-red-200";
+                message.innerText = "Maaf, tarikh ini telah ada tetamu yang menempah deposit. Sila pilih tarikh lain.";
+                message.className = "text-xs text-red-300 mt-1";
+            } else {
+                statusBox.className = "p-4 rounded-xl bg-emerald-950/80 border border-emerald-700 text-sm flex items-start gap-3";
+                icon.className = "fa-solid fa-circle-check text-emerald-400 text-xl mt-0.5";
+                title.innerText = "Tarikh Kosong (Tersedia)";
+                title.className = "font-bold text-emerald-200";
+                message.innerText = "Tahniah! Tarikh ini masih belum ditempah. Anda boleh meneruskan borang pesanan di bawah.";
+                message.className = "text-xs text-emerald-300 mt-1";
+
+                document.getElementById('checkInDate').value = inputVal;
+                calculatePrice();
+            }
+        }
+
+        function renderCalendar() {
+            const year = currentCalendarDate.getFullYear();
+            const month = currentCalendarDate.getMonth();
+
+            const monthNames = ["Januari", "Februari", "Mac", "April", "Mei", "Jun", "Julai", "Ogos", "September", "Oktober", "November", "Disember"];
+            document.getElementById('calendarMonthTitle').innerText = `${monthNames[month]} ${year}`;
+
+            const grid = document.getElementById('calendarDaysGrid');
+            grid.innerHTML = '';
+
+            const firstDayIndex = new Date(year, month, 1).getDay();
+            const totalDaysInMonth = new Date(year, month + 1, 0).getDate();
+
+            for(let i=0; i<firstDayIndex; i++) {
+                const emptyCell = document.createElement('div');
+                emptyCell.className = "py-2.5 text-slate-300";
+                grid.appendChild(emptyCell);
+            }
+
+            for(let day=1; day<=totalDaysInMonth; day++) {
+                const dayString = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                const isBooked = bookedDates.includes(dayString);
+
+                const dayCell = document.createElement('div');
+                if(isBooked) {
+                    dayCell.className = "py-2 rounded-lg bg-red-100 text-red-700 border border-red-200 cursor-not-allowed font-bold text-xs";
+                    dayCell.title = "Telah Ditempah";
+                } else {
+                    dayCell.className = "py-2 rounded-lg bg-emerald-100 hover:bg-emerald-200 text-emerald-800 border border-emerald-200 cursor-pointer font-bold text-xs transition-colors";
+                    dayCell.onclick = function() {
+                        document.getElementById('checkAvailabilityDate').value = dayString;
+                        checkSelectedDateStatus();
+                    };
+                }
+                dayCell.innerText = day;
+                grid.appendChild(dayCell);
+            }
+        }
+
+        function changeMonth(delta) {
+            currentCalendarDate.setMonth(currentCalendarDate.getMonth() + delta);
+            renderCalendar();
+        }
+
+        const nearbyPlaces = [
+            // Tempat Makan
+            { name: "Warung Datok", duration: "±3 minit", cat: "makan", icon: "fa-utensils" },
+            { name: "Brothers Corner", duration: "±3 minit", cat: "makan", icon: "fa-utensils" },
+            { name: "RNZ Steamboat", duration: "±5 minit", cat: "makan", icon: "fa-utensils" },
+            { name: "Sate Hakimi", duration: "±5 minit", cat: "makan", icon: "fa-utensils" },
+            { name: "Awae Seafood", duration: "±5 minit", cat: "makan", icon: "fa-utensils" },
+            { name: "Q Bistro", duration: "±7 minit", cat: "makan", icon: "fa-utensils" },
+            { name: "Itik Salai Masthar Sg Merab", duration: "±8 minit", cat: "makan", icon: "fa-utensils" },
+            { name: "Ayam Gepuk Top Global Putrajaya", duration: "±10 minit", cat: "makan", icon: "fa-utensils" },
+
+            // Pasaraya & Shopping
+            { name: "Mydin", duration: "±8 minit", cat: "pasaraya", icon: "fa-cart-shopping" },
+            { name: "Super Seven", duration: "±9 minit", cat: "pasaraya", icon: "fa-cart-shopping" },
+            { name: "IOI City Mall", duration: "±10 minit", cat: "pasaraya", icon: "fa-bag-shopping" },
+            { name: "Kipmall Bangi", duration: "±12 minit", cat: "pasaraya", icon: "fa-bag-shopping" },
+            { name: "Alamanda Putrajaya", duration: "±12 minit", cat: "pasaraya", icon: "fa-bag-shopping" },
+            { name: "Billion Shopping Centre", duration: "±13 minit", cat: "pasaraya", icon: "fa-cart-shopping" },
+
+            // Masjid
+            { name: "Masjid Al-Mustaqim", duration: "±4 minit", cat: "masjid", icon: "fa-mosque" },
+            { name: "Surau Al-Ridhwan", duration: "±4 minit", cat: "masjid", icon: "fa-mosque" },
+            { name: "Masjid UNITEN", duration: "±6 minit", cat: "masjid", icon: "fa-mosque" },
+            { name: "Masjid Al-Hasanah", duration: "±10 minit", cat: "masjid", icon: "fa-mosque" },
+
+            // Institusi & IPT
+            { name: "Malaysian Islamic Training Inst. (ILIM)", duration: "±5 minit", cat: "institusi", icon: "fa-graduation-cap" },
+            { name: "UNITEN", duration: "±8 minit", cat: "institusi", icon: "fa-graduation-cap" },
+            { name: "Maktab Perguruan Islam (MPI)", duration: "±8 minit", cat: "institusi", icon: "fa-graduation-cap" },
+            { name: "Malaysian France Institute (MFI)", duration: "±10 minit", cat: "institusi", icon: "fa-graduation-cap" },
+            { name: "MARDI", duration: "±12 minit", cat: "institusi", icon: "fa-building" },
+            { name: "UPM", duration: "±12 minit", cat: "institusi", icon: "fa-graduation-cap" },
+            { name: "UKM", duration: "±15 minit", cat: "institusi", icon: "fa-graduation-cap" },
+            { name: "Pusat Pentadbiran Putrajaya", duration: "±18 minit", cat: "institusi", icon: "fa-landmark" },
+            { name: "GMI", duration: "±20 minit", cat: "institusi", icon: "fa-graduation-cap" },
+            { name: "Bangi Wonderland", duration: "±24 minit", cat: "institusi", icon: "fa-water" },
+
+            // Hospital
+            { name: "Hospital Serdang", duration: "±10 minit", cat: "hospital", icon: "fa-hospital" },
+            { name: "Klinik Zahran", duration: "±12 minit", cat: "hospital", icon: "fa-kit-medical" },
+            { name: "Hospital Pakar An-Nur", duration: "±14 minit", cat: "hospital", icon: "fa-hospital" }
+        ];
+
+        function renderPlaces(filter = 'semua') {
+            const grid = document.getElementById('placesGrid');
+            grid.innerHTML = '';
+
+            const list = filter === 'semua' ? nearbyPlaces : nearbyPlaces.filter(p => p.cat === filter);
+
+            list.forEach(place => {
+                const card = document.createElement('div');
+                card.className = "bg-slate-800/80 border border-slate-700/80 rounded-2xl p-3.5 flex items-center justify-between";
+                card.innerHTML = `
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-xl bg-slate-700 text-brand-400 flex items-center justify-center text-xs">
+                            <i class="fa-solid ${place.icon}"></i>
+                        </div>
+                        <span class="text-xs font-semibold text-slate-200">${place.name}</span>
+                    </div>
+                    <span class="text-[10px] font-bold text-emerald-400 bg-emerald-950/80 border border-emerald-800/50 px-2 py-0.5 rounded-full whitespace-nowrap">
+                        ${place.duration}
+                    </span>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterPlaces(category) {
+            const btns = document.querySelectorAll('.cat-btn');
+            btns.forEach(btn => {
+                if(btn.dataset.cat === category) {
+                    btn.className = "cat-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-brand-600 text-white";
+                } else {
+                    btn.className = "cat-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-slate-800 text-slate-300 hover:bg-slate-700";
+                }
+            });
+            renderPlaces(category);
+        }
+
+        function calculatePrice() {
+            const checkInInput = document.getElementById('checkInDate').value;
+            const checkOutInput = document.getElementById('checkOutDate').value;
+
+            if(!checkInInput || !checkOutInput) return;
+
+            const checkInDate = new Date(checkInInput);
+            const checkOutDate = new Date(checkOutInput);
+
+            if(checkOutDate <= checkInDate) {
+                document.getElementById('summaryNights').innerText = 'Tarikh tidak sah';
+                document.getElementById('summaryTotal').innerText = 'RM 0';
+                return;
+            }
+
+            const diffTime = Math.abs(checkOutDate - checkInDate);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            const baseRate = 150;
+            const total = diffDays * baseRate;
+
+            document.getElementById('summaryNights').innerText = `${diffDays} Malam`;
+            document.getElementById('summaryTotal').innerText = `RM ${total}`;
+        }
+
+        function submitToWhatsApp() {
+            const name = document.getElementById('guestName').value;
+            const guests = document.getElementById('guestCount').value;
+            const checkIn = document.getElementById('checkInDate').value;
+            const checkOut = document.getElementById('checkOutDate').value;
+            const notes = document.getElementById('guestNotes').value;
+            const total = document.getElementById('summaryTotal').innerText;
+            const nights = document.getElementById('summaryNights').innerText;
+
+            let msg = `*TEMPAHAN HOMESTAY PENCEN (TINGKAT 1)*\n`;
+            msg += `--------------------------------------\n`;
+            msg += `👤 *Nama Penuh:* ${name}\n`;
+            msg += `👥 *Jumlah Tetamu:* ${guests}\n`;
+            msg += `📅 *Check-In:* ${checkIn}\n`;
+            msg += `📅 *Check-Out:* ${checkOut}\n`;
+            msg += `🌙 *Tempoh:* ${nights}\n`;
+            msg += `💰 *Anggaran Kos:* ${total}\n`;
+            if(notes.trim() !== "") msg += `📝 *Nota:* ${notes}\n`;
+            msg += `--------------------------------------\n`;
+            msg += `Saya membuat semakan ini menerusi Laman Web Rasmi. Sila sahkan tempahan. Terima kasih!`;
+
+            window.open(`https://www.wasap.my/${OFFICIAL_PHONE_INT}?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+        function openGalleryModal(src, caption) {
+            document.getElementById('modalImage').src = src;
+            document.getElementById('modalCaption').innerText = caption;
+            document.getElementById('galleryModal').classList.remove('hidden');
+        }
+
+        function closeGalleryModal() {
+            document.getElementById('galleryModal').classList.add('hidden');
+        }
+
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+
+        window.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('currentYear').innerText = new Date().getFullYear();
+            
+            runSecurityDomainCheck();
+            renderCalendar();
+            renderPlaces('semua');
+
+            const today = new Date();
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+
+            document.getElementById('checkInDate').value = today.toISOString().split('T')[0];
+            document.getElementById('checkOutDate').value = tomorrow.toISOString().split('T')[0];
+            calculatePrice();
+        });
+    </script>
+</body>
+</html>
